@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/xpbd-soft-body/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>xpbd-soft-body</title>
+    <script type="module" crossorigin src="/xpbd-soft-body/assets/index-IjEbRG_K.js"></script>
+    <link rel="stylesheet" crossorigin href="/xpbd-soft-body/assets/index-DCag8d3Q.css">
+  </head>
+  <body>
+    <div class="app">
+    <div class="layout">
+      <header class="top-panel">
+        <h1 class="title">XPBD Soft Body Simulation</h1>
+
+        <nav class="button-row" aria-label="Main controls">
+          <button id="button-start" type="button">Start</button>
+          <button id="button-pause" type="button">Pause</button>
+          <button id="button-restart" type="button">Restart</button>
+        </nav>
+
+
+        <div class="controls-panel">
+
+          <!-- Model selection -->
+          <label>
+            Model:
+            <select id="model-select">
+              <option value="cube2">Cube (2x2x2)</option>
+              <option value="cube3">Cube (3x3x3)</option>
+              <option value="cube5">Cube (5x5x5)</option>
+              <option value="cube10">Cube (10x10x10)</option>
+              <option value="monkey">Monkey</option>
+              <option value="cat">Cat</option>
+              <option value="bunny">Bunny</option>
+            </select>
+          </label>
+
+          <!-- Wireframe toggle -->
+          <label>
+            Display:
+            <select id="render-mode">
+              <option value="surface">Surface</option>
+              <option value="wireframe">Wireframe</option>
+            </select>
+          </label>
+
+
+          <!-- Stats display -->
+          <div class="stats">
+            <div>FPS: <span id="fps">0</span></div>
+            <div>Particles: <span id="particle-count">0</span></div>
+            <div>Tets: <span id="tet-count">0</span></div>
+          </div>
+
+
+          <div class="sliders">
+
+            <label>
+              Edge Compliance:
+              <input type="range" id="edge-compliance" min="0" max="1e-5" step="1e-7" value="1e-8">
+              <span id="edge-value">0.01</span>
+            </label>
+
+            <label>
+              Volume Compliance:
+              <input type="range" id="volume-compliance" min="0" max="1e-5" step="1e-7" value="1e-8">
+              <span id="volume-value">0</span>
+            </label>
+
+            <br>
+            (setting compliance to 0 might make simulation unstable!)
+            <br>
+
+            <label>
+              Solver substeps:
+              <input type="range" id="substep-count" min="1" max="20" step="1" value="5">
+              <span id="substep-value">5</span>
+            </label>
+
+
+          </div>
+
+        </div>
+
+
+        <p class="text">Shift-click to drag object. Left click and drag to rotate scene, right click and drag to pan the scene. Scroll to zoom.</p>
+        <div class="info">Controls</div>
+      </header>
+
+      <main class="canvas-shell">
+        <div class="canvas-frame">
+          <canvas id="three-canvas"></canvas>
+        </div>
+
+      </main>
+    </div>
+    </div>
+
+  </body>
+</html>
